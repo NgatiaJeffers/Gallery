@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css"/>
 </head>
 <body class="bg-secondary-300 font-body">
+    {% include "navbar.html" %}
     {% block content %}
     {% endblock %}
 </body>
