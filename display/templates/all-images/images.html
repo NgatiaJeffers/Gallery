@@ -2,10 +2,22 @@
 {% load static %}
 
 {% block content %}
-<div class="container mx-auto">
-    <section class="flex items-center justify-center h-screen">
-        <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-    </section>
+<div class="container grid place-items-start mx-auto">
+    <div>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-secondary-200 mb-5">Made for you</h1>
+        <section class="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-4 gap-12 min-h-screen min-w-screen">
+            <!-- Card -->
+            {% for image in images %}
+            <div class="flex flex-col max-w-md bg-secondary-300 px-8 py-6 rounded-xl space-y-5 items-center hover:shadow-lg">
+                <h3 class="font-bold text-gray-900 text-xl">{{ image.image_name }}n</h3>
+                <img class="w-full rounded-md" src="{{image.image.url}}" alt="motivation" />
+                <p class="text-center leading-relaxed">{{ image.image_description | truncatechars:50 }}</p>
+                <span class="text-center">{{ image.created }}</span>
+                <button class="px-24 py-4 bg-primary rounded-md text-secondary-200 text-sm focus:border-transparent">Take a tour</button>
+            </div>
+            {% endfor %}
 
+        </section>
+    </div>
 </div>
 {% endblock %}
