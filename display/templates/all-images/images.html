@@ -4,16 +4,15 @@
 {% block content %}
 <div class="container grid place-items-start mx-auto">
     <div>
-        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-secondary-200 mb-5">Made for you</h1>
-        <section class="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-4 gap-12 min-h-screen min-w-screen">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-secondary-200 mb-5 px-8">Made for you</h1>
+        <section class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 sm:gap-2 gap-5 min-h-screen min-w-screen">
             <!-- Card -->
             {% for image in images %}
             <div class="flex flex-col max-w-md bg-secondary-300 px-8 py-6 rounded-xl space-y-5 items-center hover:shadow-lg">
-                <h3 class="font-bold text-gray-900 text-xl">{{ image.image_name }}n</h3>
-                <img class="w-full rounded-md" src="{{image.image.url}}" alt="motivation" />
-                <p class="text-center leading-relaxed">{{ image.image_description | truncatechars:50 }}</p>
-                <span class="text-center">{{ image.created }}</span>
-                <button class="px-24 py-4 bg-primary rounded-md text-secondary-200 text-sm focus:border-transparent">Take a tour</button>
+                <!-- <h3 class="font-bold text-gray-900 text-xl"></h3> -->
+                <a href="{% url 'details' image.pk %}"><img class="w-full h-full sm:h-full object-cover rounded-md" src="{{image.image.url}}" alt="motivation" /></a>
+                <span class="text-left">{{ image.image_name }}</span>
+                <!--  -->
             </div>
             {% endfor %}
 

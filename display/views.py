@@ -11,6 +11,15 @@ def home(request):
     location = Location.objects.all()
     context = {
         'images': images,
-        'loaction': location
+        'location': location
     }
     return render(request, "all-images/images.html", context)
+
+def image_details(request, pk):
+    image = Images.objects.get(pk = pk)
+    location = Location.objects.all()
+    context = {
+        'image': image,
+        'location': location
+    }
+    return render(request, "all-images/image_details.html", context)
