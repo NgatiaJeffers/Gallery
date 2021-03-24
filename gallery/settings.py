@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import django_heroku
 import dj_database_url
 from pathlib import Path
@@ -47,7 +50,14 @@ INSTALLED_APPS = [
     'display',
     'tailwind',
     'theme',
+    'cloudinary',
 ]
+
+cloudinary.config( 
+    cloud_name = config('CLUODINARY_CLOUD_NAME'), 
+    api_key = config('CLUODINARY_API_KEY'), 
+    api_secret = config('CLUODINARY_API_SECRET'),  
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
