@@ -27,7 +27,7 @@ class Category(models.Model):
         return self.category
 
 class Images(models.Model):
-    image = CloudinaryField('images')
+    image = CloudinaryField('image')
     image_name = models.CharField(max_length = 100)
     image_description = models.TextField()
     image_category = models.ManyToManyField(Category, related_name = 'posts')
